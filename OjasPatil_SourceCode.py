@@ -1,5 +1,4 @@
 '''
-Code Artifact: Python
 Description: This code creates a program that takes in 5 sudoku puzzles and solves them by using recursion.
 Programmer Name: Ojas Patil
 Date Created: 11/8/2022
@@ -9,64 +8,64 @@ Postconditions: The program prints the name of the file, the unsolved puzzle, an
 '''
 
 
-board1 = [ #sets board1 to the first board from puzzle1.txt and changes the blanks to 0s
-    [5,0,0,0,0,0,1,7,0], #sets the first line of the board
-    [1,0,6,5,0,9,0,4,0], #sets the second line of the board
-    [4,7,2,1,0,6,0,0,0], #sets the third line of the board
-    [9,0,0,0,0,0,5,0,0], #sets the fourth line of the board
-    [0,1,8,0,9,5,4,0,0], #sets the fifth line of the board
-    [6,0,0,4,0,2,3,8,9], #sets the sixth line of the board
-    [0,4,0,0,0,0,9,3,0], #sets the seventh line of the board
-    [0,9,0,7,0,3,0,5,0], #sets the eighth line of the board
-    [2,6,3,9,5,8,7,1,4] #sets the last line of the board
+board1 = [ #creates the first board to be solved
+    [5,0,0,0,0,0,1,7,0], 
+    [1,0,6,5,0,9,0,4,0], 
+    [4,7,2,1,0,6,0,0,0], 
+    [9,0,0,0,0,0,5,0,0], 
+    [0,1,8,0,9,5,4,0,0], 
+    [6,0,0,4,0,2,3,8,9], 
+    [0,4,0,0,0,0,9,3,0], 
+    [0,9,0,7,0,3,0,5,0], 
+    [2,6,3,9,5,8,7,1,4] 
 ]
 
-board2 = [ #sets board2 to the first board from puzzle2.txt and changes the blanks to 0s
-    [5,3,0,8,0,4,0,7,6], #sets the first line of the board
-    [1,0,6,0,7,9,0,4,3], #sets the second line of the board
-    [0,7,0,0,3,6,0,0,5], #sets the third line of the board
-    [9,2,4,0,8,0,5,6,0], #sets the fourth line of the board
-    [3,0,8,6,9,0,4,2,7], #sets the fifth line of the board
-    [0,5,0,4,1,2,3,0,0], #sets the sixth line of the board
-    [7,4,5,0,6,0,9,0,8], #sets the seventh line of the board
-    [8,0,1,7,0,3,6,5,2], #sets the eighth line of the board
-    [0,6,3,9,5,0,7,0,4] #sets the last line of the board
+board2 = [ #creates the second board to be solved
+    [5,3,0,8,0,4,0,7,6], 
+    [1,0,6,0,7,9,0,4,3], 
+    [0,7,0,0,3,6,0,0,5], 
+    [9,2,4,0,8,0,5,6,0], 
+    [3,0,8,6,9,0,4,2,7],
+    [0,5,0,4,1,2,3,0,0],
+    [7,4,5,0,6,0,9,0,8], 
+    [8,0,1,7,0,3,6,5,2], 
+    [0,6,3,9,5,0,7,0,4] 
 ]
 
-board3 = [ #sets board3 to the first board from puzzle3.txt and changes the blanks to 0s
-    [7,0,0,3,0,6,0,4,0], #sets the first line of the board
-    [3,4,0,5,0,9,6,0,8], #sets the second line of the board
-    [6,1,9,8,0,7,5,2,3], #sets the third line of the board
-    [4,9,0,0,8,5,0,0,7], #sets the fourth line of the board
-    [1,2,0,0,0,0,3,6,5], #sets the fifth line of the board
-    [0,7,6,0,3,0,8,0,0], #sets the sixth line of the board
-    [2,0,1,4,9,0,0,0,6], #sets the seventh line of the board
-    [0,3,0,2,0,8,4,0,1], #sets the eighth line of the board
-    [8,6,4,7,0,0,9,3,2] #sets the last line of the board
+board3 = [ #creates the third board to be solved
+    [7,0,0,3,0,6,0,4,0], 
+    [3,4,0,5,0,9,6,0,8], 
+    [6,1,9,8,0,7,5,2,3], 
+    [4,9,0,0,8,5,0,0,7], 
+    [1,2,0,0,0,0,3,6,5],
+    [0,7,6,0,3,0,8,0,0],
+    [2,0,1,4,9,0,0,0,6], 
+    [0,3,0,2,0,8,4,0,1], 
+    [8,6,4,7,0,0,9,3,2] 
 ]
 
-board4 = [ #sets board4 to the first board from puzzle4.txt and changes the blanks to 0s
-    [7,3,2,0,8,4,6,9,1], #sets the first line of the board
-    [9,1,0,3,0,0,5,2,0], #sets the second line of the board
-    [8,0,0,9,0,2,7,3,4], #sets the third line of the board
-    [5,4,9,0,0,0,8,6,3], #sets the fourth line of the board
-    [1,0,0,0,3,0,2,0,7], #sets the fifth line of the board
-    [0,2,3,0,4,8,9,1,0], #sets the sixth line of the board
-    [3,9,0,8,5,0,4,7,2], #sets the seventh line of the board
-    [0,7,0,4,0,3,0,0,6], #sets the eighth line of the board
-    [4,6,8,0,7,0,0,5,9] #sets the last line of the board
+board4 = [ #creates the fourth board to be solved
+    [7,3,2,0,8,4,6,9,1], 
+    [9,1,0,3,0,0,5,2,0], 
+    [8,0,0,9,0,2,7,3,4], 
+    [5,4,9,0,0,0,8,6,3], 
+    [1,0,0,0,3,0,2,0,7], 
+    [0,2,3,0,4,8,9,1,0], 
+    [3,9,0,8,5,0,4,7,2], 
+    [0,7,0,4,0,3,0,0,6], 
+    [4,6,8,0,7,0,0,5,9] 
 ]
 
-board5 = [ #sets board5 to the first board from puzzle5.txt and changes the blanks to 0s
-    [0,0,0,0,0,4,2,0,1], #sets the first line of the board
-    [0,0,0,0,7,0,0,0,5], #sets the second line of the board
-    [0,0,8,1,0,5,7,0,0], #sets the third line of the board
-    [0,4,1,0,3,2,8,0,0], #sets the fourth line of the board
-    [3,8,9,0,5,6,1,2,7], #sets the fifth line of the board
-    [2,0,0,0,0,8,3,0,0], #sets the sixth line of the board
-    [0,2,4,0,0,7,0,1,0], #sets the seventh line of the board
-    [8,3,6,0,9,0,4,0,0], #sets the eighth line of the board
-    [0,0,7,0,0,3,5,0,0] #sets the last line of the board
+board5 = [ #creates the fifth board to be solved
+    [0,0,0,0,0,4,2,0,1], 
+    [0,0,0,0,7,0,0,0,5],
+    [0,0,8,1,0,5,7,0,0], 
+    [0,4,1,0,3,2,8,0,0],
+    [3,8,9,0,5,6,1,2,7], 
+    [2,0,0,0,0,8,3,0,0], 
+    [0,2,4,0,0,7,0,1,0],
+    [8,3,6,0,9,0,4,0,0],
+    [0,0,7,0,0,3,5,0,0] 
 ]
 
 def solve(board): #creates a function solve that takes in board
